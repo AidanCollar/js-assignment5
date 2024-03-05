@@ -24,11 +24,19 @@ or you can run all by running `node run-all`.
 */
 
 const { test } = require('../tester')
-
 const isEven = number => number % 2 === 0 // returns true if the number is even
 
 const numbers = [ -10, -5, 0, 5, 10, 8, -2 ]
 
-const numberStrings = numbers // append your array methods here
+const numberStrings = numbers.sort((a,b)=>{
+	return a-b;
+	})
+	.filter(a=>{
+		return a>0
+	})
+	.map((number)=>{
+		if (isEven(number)) return `${number} is even`
+		else return `${number} is odd`
+})// append your array methods here
 
 test("Problem 3", numberStrings)
